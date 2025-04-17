@@ -21,44 +21,85 @@
     </properties>
     
     <dependencies>
+    <!-- Spring Boot Starter Web: Fornisce le dipendenze base per creare applicazioni web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- Spring Boot Starter Test: Fornisce le dipendenze per testare applicazioni Spring Boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    <!-- Spring Boot Starter Validation: Fornisce supporto per la validazione dei Bean (JSR-380),
+         usando Hibernate Validator come implementazione predefinita. Utile per validare DTO e parametri. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+    <!-- Spring Boot Starter Security: Per gestire autenticazione e autorizzazione -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+    <!-- Spring Boot Starter Data: Fornisce supporto per Java Persistence API (JPA) con Spring Data-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+    <!-- Spring Boot Starter Thymeleaf: Per il rendering dinamico delle viste HTML lato server -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <!-- Thymeleaf Extras Spring Security: Modulo di integrazione che permette di usare
+             le funzionalità di Spring Security (es. controllo ruoli, accesso a Principal) nei template Thymeleaf. -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+        </dependency>
+
+        <!-- Driver JDBC per PostgreSQL: Necessario per permettere all'applicazione Java
+             di comunicare con il database PostgreSQL. -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.7.2</version>
         </dependency>
         
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        
+        <!-- Jakarta Persistence API: Definisce le interfacce e le annotazioni standard per JPA
+             (es. @Entity, @Id, @GeneratedValue). Viene solitamente inclusa da starter-data-jpa,
+             ma specificarla esplicitamente può aiutare in alcuni casi o chiarire la dipendenza. -->
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
             <version>3.1.0</version>
         </dependency>
 
+        <!-- Flyway Core: Libreria per la gestione delle migrazioni del database.
+             Permette di versionare le modifiche allo schema DB tramite script SQL. -->
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
         </dependency>
         
+        <!-- Lombok: Libreria che aiuta a ridurre il codice boilerplate (es. getter, setter, costruttori)
+             nelle classi Java tramite annotazioni (es. @Data, @Getter, @Setter, @NoArgsConstructor).
+             Richiede un plugin nell'IDE. -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
         
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+
     </dependencies>
     
     <build>
