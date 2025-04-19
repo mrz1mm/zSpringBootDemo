@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Benvenuto!</title>
+  </head>
+  <body>
+    <h1>Pagina Pubblica Principale</h1>
+    <p>Questa pagina è visibile a tutti, anche senza login.</p>
+    <hr />
+    <p>
+      <a th:href="@{/home}">Vai alla Home Page Protetta</a>
+    </p>
+    <p>
+      <a th:href="@{/login}">Effettua il Login</a>
+    </p>
+  </body>
+</html>

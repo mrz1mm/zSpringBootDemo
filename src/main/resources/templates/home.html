@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home Page Protetta</title>
+  </head>
+  <body>
+    <h1>Home Page Protetta</h1>
+    <p>Puoi vedere questa pagina solo se sei autenticato.</p>
+    <hr />
+
+    <!-- Sezione visibile solo agli utenti autenticati -->
+    <div sec:authorize="isAuthenticated()">
+      <h2>Informazioni Utente</h2>
+      <p>
+        Benvenuto/a, <strong sec:authentication="name">Nome Utente</strong>!
+        <!-- sec:authentication="name" recupera il nome dell'utente dal Principal -->
+      </p>
+      <p>
+        I tuoi ruoli/autorità sono:
+        <span sec:authentication="principal.authorities">[Lista Ruoli]</span>
+        <!-- Recupera la lista delle autorità (es. [ROLE_ADMIN, ROLE_USER]) -->
+      </p>
+
+      <!-- Form per eseguire il logout -->
+      <form th:action="@{/logout}" method="post" style="margin-top: 20px">
+        <!-- Spring Security aggiungerà automaticamente il token CSRF se abilitato -->
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+
+    <!-- Messaggio (opzionale) per utenti non autenticati che arrivano qui per errore -->
+    <div sec:authorize="!isAuthenticated()">
+      <p>
+        Non sei autenticato. <a th:href="@{/login}">Accedi</a> per vedere questa
+        pagina.
+      </p>
+    </div>
+
+    <hr />
+    <p><a th:href="@{/}">Torna alla Pagina Pubblica</a></p>
+  </body>
+</html>
